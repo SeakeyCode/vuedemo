@@ -1,88 +1,46 @@
 <template>
   <div class="hello">
-    <div id="minder-container"></div>
+    <h1>{{ msg }}</h1>
+    <p>
+      For a guide and recipes on how to configure / customize this project,<br>
+      check out the
+      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+    </p>
+    <h3>Installed CLI Plugins</h3>
+    <ul>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+    </ul>
+    <h3>Essential Links</h3>
+    <ul>
+      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
+    </ul>
+    <h3>Ecosystem</h3>
+    <ul>
+      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
+      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
+      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
+      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
+    </ul>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
-  data() {
-    return {
-      importData: [
-        {
-          data: { text: "新闻1", id: 2, priority1: 1 },
-          children: [
-            {
-              data: { text: "新闻2", id: 3, priority1: 1 },
-              children: [
-                { data: { text: "新闻3", id: 4, priority1: 1 } },
-                { data: { text: "网页4", id: 5, priority1: 1 } },
-                { data: { text: "贴吧5", id: 6, priority1: 2 } },
-                { data: { text: "知道6", id: 7, priority1: 3 } },
-                { data: { text: "音乐7", id: 8, priority1: 4 } }
-              ]
-            },
-            { data: { text: "网页8", id: 9, priority1: 1 } },
-            { data: { text: "贴吧9", id: 10, priority1: 2 } },
-            { data: { text: "知道11", id: 11, priority1: 3 } },
-            { data: { text: "音乐12", id: 12, priority1: 4 } }
-          ]
-        },
-        {
-          data: { text: "新闻1", id: 2, priority1: 1 },
-          children: [
-            { data: { text: "贴吧9", id: 10, priority1: 2 } },
-            { data: { text: "知道11", id: 11, priority1: 3 } },
-            { data: { text: "音乐12", id: 12, priority1: 4 } }
-          ]
-        },
-        {
-          data: { text: "新闻1", id: 2, priority1: 1 },
-          children: [
-            {
-              data: { text: "新闻2", id: 3, priority1: 1 },
-              children: [
-                { data: { text: "新闻3", id: 4, priority1: 1 } },
-                { data: { text: "网页4", id: 5, priority1: 1 } },
-                { data: { text: "贴吧5", id: 6, priority1: 2 } },
-                { data: { text: "知道6", id: 7, priority1: 3 } },
-                { data: { text: "音乐7", id: 8, priority1: 4 } }
-              ]
-            },
-            { data: { text: "网页8", id: 9, priority1: 1 } },
-            { data: { text: "贴吧9", id: 10, priority1: 2 } },
-            { data: { text: "知道11", id: 11, priority1: 3 } },
-            { data: { text: "音乐12", id: 12, priority1: 4 } }
-          ]
-        }
-      ]
-    };
-  },
-  mounted() {
-    const getId = document.getElementById(`minder-container`);
-    this._paper = new kity.Paper(getId)
-    this._paper.setWidth(1000).setHeight(500);
-    this._paper.shapeNode.setAttribute('transform', 'translate(0.5, 0.5)');
-    this._rc = new kity.Group().setId('minder');
-    // this.importNode(this._paper, this.importData)
-    this._paper.addShape(this._rc);
-    console.log(this._paper)
-  },
-  methods: {
-    //  importNode(node, json) {
-    //     var childrenTreeData = json.children || [];
-    //     for (var i = 0; i < childrenTreeData.length; i++) {
-    //         var childNode = this.createNode(null, node);
-    //         this.importNode(childNode, childrenTreeData[i]);
-    //     }
-    //     return node;
-    // }
+  name: 'HelloWorld',
+  props: {
+    msg: String
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style scoped>
 h3 {
   margin: 40px 0 0;
 }
