@@ -15,6 +15,6 @@ export default new Router({
         {  path: '/about', component: About },
         {  path: '/domDiff', component: domDiff },
         {  path: '/editing', component: editing },
-		{ path: '/', redirect: '/chain' }    ]
+		{ path: '/', redirect: '/Home' }    ]
 }
 )
