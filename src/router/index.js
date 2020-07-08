@@ -11,7 +11,7 @@ export default new Router({
         { path: '/home', component: Home },
         { path: '/markdown', component: Markdown },
         { path: '/chain', component: Chain },
-        { path: '/', redirect: '/chain' }
+        { path: '/', redirect: '/home' }
     ]
 }
 )
