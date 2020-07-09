@@ -12,7 +12,7 @@ Vue.use(Router)
 export default new Router({
     mode: 'history',
     routes: [
-        {  path: '/home', component: Home },
+        {  path: '/Home', component: Home },
         {  path: '/about', component: About },
         {  path: '/domDiff', component: domDiff },
         {  path: '/editing', component: editing },

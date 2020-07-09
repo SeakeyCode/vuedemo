@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import router from './router'
+// import kityMinder from 'vue-kityminder-editor'
+// import 'vue-kityminder-editor/lib/kityMinder.css'
+// Vue.use(kityMinder)
 
 Vue.config.productionTip = false
 

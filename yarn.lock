@@ -2146,6 +2146,11 @@ clone@^2.1.1, clone@^2.1.2:
   resolved "https://registry.npm.taobao.org/clone/download/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
 
+clusterize.js@^0.18.1:
+  version "0.18.1"
+  resolved "https://registry.npm.taobao.org/clusterize.js/download/clusterize.js-0.18.1.tgz#a286a9749bd1fa9c2fe21b7fabd8780a590dd836"
+  integrity sha1-ooapdJvR+pwv4ht/q9h4ClkN2DY=
+
 coa@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npm.taobao.org/coa/download/coa-2.0.2.tgz#43f6c21151b4ef2bf57187db0d73de229e3e7ec3"
@@ -4033,6 +4038,11 @@ hosted-git-info@^2.1.4:
   version "2.8.5"
   resolved "https://registry.npm.taobao.org/hosted-git-info/download/hosted-git-info-2.8.5.tgz?cache=0&sync_timestamp=1570493570687&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhosted-git-info%2Fdownload%2Fhosted-git-info-2.8.5.tgz#759cfcf2c4d156ade59b0b2dfabddc42a6b9c70c"
   integrity sha1-dZz88sTRVq3lmwst+r3cQqa5xww=
+
+hotbox-ui@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/hotbox-ui/download/hotbox-ui-1.0.0.tgz#fd656d7f8640d78a6a9c60fe32ae9f455e356928"
+  integrity sha1-/WVtf4ZA14pqnGD+Mq6fRV41aSg=
 
 hpack.js@^2.1.6:
   version "2.1.6"
@@ -8403,6 +8413,27 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-hot-reload-api%2Fdownload%2Fvue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
+
+vue-kityminder-editor@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npm.taobao.org/vue-kityminder-editor/download/vue-kityminder-editor-0.1.2.tgz#35381dd2adb2c85b0beb020258cd56603249a9c5"
+  integrity sha1-NTgd0q2yyFsL6wICWM1WYDJJqcU=
+  dependencies:
+    axios "^0.19.0"
+    core-js "^3.3.2"
+    css-loader "^3.2.0"
+    hotbox-ui "^1.0.0"
+    kity "^2.0.4"
+    kityminder-core "^1.4.50"
+    lodash "^4.17.15"
+    node-sass "^4.13.0"
+    sass-loader "^8.0.0"
+    scss "^0.2.4"
+    vue "^2.6.10"
+    vue-router "^3.1.3"
+    vue-slicksort "^1.1.3"
+    vue-style-loader "^4.1.2"
+    vuex "^3.0.1"
 
 vue-loader@^15.7.0:
   version "15.7.1"

@@ -16,7 +16,7 @@
                 v-for="(item, index) in visibleData"
                 :key="index"
                 :data-id="item.id"
-                :style="{ height: itemSize + 'px',lineHeight: itemSize + 'px' }">
+                :style="{ lineHeight: itemSize + 'px' }">
                 {{ item.value }}
             </div>
         </div>
@@ -35,26 +35,24 @@ export default {
       startOffset:0,
       start: 0,
       end: null,
-      itemSize: 40,
+      itemSize: 26,
       listData: [],
-      startNode: {},
-      endNode: {}
+      startContainer: null,
+      startOffsets: null,
+      endContainer: null,
+      endOffset: null
     }
   },
   computed:{
-    //列表总高度
     listHeight(){
       return this.listData.length * this.itemSize;
     },
-    //可显示的列表项数
     visibleCount(){
       return Math.ceil(this.screenHeight / this.itemSize)
     },
-    //偏移量对应的style
     getTransform(){
       return `translate3d(0,${this.startOffset}px,0)`;
     },
-    //获取真实显示列表数据
     visibleData(){
       return this.listData.slice(this.start, Math.min(this.end,this.listData.length))
     }
@@ -62,7 +60,7 @@ export default {
   mounted () {
     // eslint-disable-next-line no-irregular-whitespace
     for(let i = 0; i < 200; i++) {
-        this.listData.push({ id: uuidv4(), value: `${i}为了拥护单一责任和开放/封闭的原则，我们尝试使标记的扩展相对轻松。`, selectNode: false })
+        this.listData.push({ id: uuidv4(), value: `${i}为了拥护单一责任和开放/封闭的原则`, selectNode: false })
     }
     this.screenHeight = parseInt(this.$el.scrollHeight);
     this.start = 0;
@@ -71,35 +69,24 @@ export default {
   methods: {
     onmouseup () {
         const range = window.getSelection().getRangeAt(0)
-        this.startNode = {
-            node: range.startContainer,
-            offset: range.startOffset,
-            id: range.startContainer.parentNode.dataset.id
-        };
-        this.endNode = {
-            node: range.endContainer,
-            offset: range.endOffset,
-            id: range.endContainer.parentNode.dataset.id
-        };
-        console.log(this.startNode, this.endNode)
+        console.log(range)
+        this.startContainer = range.startContainer
+        this.startOffset = range.startOffset
+        this.endContainer = range.endContainer
+        this.endOffset = range.endOffset
     },
     scrollEvent() {
-      //当前滚动位置
       let scrollTop = this.$refs.list.scrollTop;
-      //此时的开始索引
       this.start = Math.floor(scrollTop / this.itemSize);
-      //此时的结束索引
       this.end = this.start + this.visibleCount;
-      //此时的偏移量
       this.startOffset = scrollTop - (scrollTop % this.itemSize);
+      if(!this.startContainer) return
       this.$nextTick(() => {
-        this.startNode.node = document.querySelector(`.item-${this.startNode.id}`)
-        this.endNode.node = document.querySelector(`.item-${this.endNode.id}`)
-        console.log(this.startNode.node, this.startNode.node)
-        this.setSelcteRange(this.startNode.node, this.endNode.node, this.startNode.offset, this.endNode.offset)
+        this.setSelcteRange(this.startContainer, this.endContainer, this.startOffsets, this.endOffset)
       })
     },
     setSelcteRange (statrNode, endNode, startPos, endPos) {
+      console.log(statrNode, endNode)
       let selection = window.getSelection()
       let range = document.createRange()
       range.setStart(statrNode, startPos)
