@@ -2,13 +2,6 @@
     <div ref="list" class="infinite-list-container" @scroll="scrollEvent($event)">
         <div class="infinite-list-phantom" :style="{ height: listHeight + 'px' }"></div>
         <div class="infinite-list" :style="{ transform: getTransform }">
-        <!-- <div
-            class="view-overlays"
-            v-for="(item, index) in visibleData"
-            :key="index"
-        >
-            &nbsp;
-        </div> -->
         <div class="input-box" @mouseup="onmouseup" contenteditable>
             <div ref="items"
                 class="infinite-list-item"
@@ -69,7 +62,6 @@ export default {
   methods: {
     onmouseup () {
         const range = window.getSelection().getRangeAt(0)
-        console.log(range)
         this.startContainer = range.startContainer
         this.startOffset = range.startOffset
         this.endContainer = range.endContainer
@@ -84,6 +76,10 @@ export default {
       this.$nextTick(() => {
         this.setSelcteRange(this.startContainer, this.endContainer, this.startOffsets, this.endOffset)
       })
+      // console.dir(document.querySelector('.input-box').setSelectionRange(0, 100))
+      // const o = document.querySelector('#t')
+      // o.setSelectionRange(0, 10)
+      // o.focus()
     },
     setSelcteRange (statrNode, endNode, startPos, endPos) {
       console.log(statrNode, endNode)

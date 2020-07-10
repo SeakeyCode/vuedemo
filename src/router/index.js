@@ -5,7 +5,7 @@ import Home from '@/components/home'
 import About from '@/components/about'
 import domDiff from '@/components/domDiff'
 import editing from '@/components/editing'
-import bezier from '@/components/bezier'
+import minder from '@/components/minder'
 
 Vue.use(Router)
 
@@ -16,7 +16,7 @@ export default new Router({
         {  path: '/about', component: About },
         {  path: '/domDiff', component: domDiff },
         {  path: '/editing', component: editing },
-        {  path: '/bezier', component: bezier },
+        {  path: '/minder', component: minder },
         { path: '*', component: Home }
     ]
 }
