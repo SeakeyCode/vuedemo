@@ -1,36 +1,46 @@
 <template>
   <div class="textcom">
-    <div id="scrollArea" class="clusterize-scroll">
-      <div id="contentArea" class="clusterize-content">
-        <div>First row</div>
-        <div>Second row</div>
-        <div>…</div>
+    <div class="clusterize">
+      <table>
+        <thead>
+          <tr>
+            <th>Headers</th>
+          </tr>
+        </thead>
+      </table>
+      <div id="scrollArea" class="clusterize-scroll">
+        <table>
+          <tbody id="contentArea" class="clusterize-content">
+            <tr class="clusterize-no-data">
+              <td>Loading data…</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div> 
+    </div>
   </div>
 </template>
 
 <script>
 import Clusterize from 'clusterize.js'
 export default {
-  name: 'home',
+  name: 'textcom-测试',
   data() {
-    return {
-    }
+    return {}
   },
-  mounted () {
+  mounted() {
     var clusterize = new Clusterize({
       scrollId: 'scrollArea',
-      contentId: 'contentArea'
+      contentId: 'contentArea',
     })
     console.log(clusterize)
   },
-  props:{
+  props: {
     data: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 }
 </script>
 

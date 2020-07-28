@@ -8,26 +8,19 @@
         <li class="item">Item 3</li>
       </ul>
       <div>Hello World</div>
-    </div> 
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'home',
+  name: 'domDiff-虚拟DOM',
   data() {
-    return {
-    }
+    return {}
   },
-  mounted () {
-    
-  },
-  methods: {
-    
-  }
+  mounted() {},
+  methods: {},
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

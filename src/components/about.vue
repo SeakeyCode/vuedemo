@@ -6,21 +6,16 @@
 
 <script>
 // typical import
- 
+
 // or get other plugins:
 export default {
-  name: 'home',
+  name: 'about-关于',
   data() {
-    return {
-    }
+    return {}
   },
-  methods: {
-    
-  }
+  methods: {},
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
+<style scoped></style>
