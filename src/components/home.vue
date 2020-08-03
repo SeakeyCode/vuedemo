@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="aside">
+    <!-- <div class="aside">
       <router-link
         tag="div"
         :to="item.name.split('-')[0]"
@@ -10,10 +10,10 @@
       >
         {{ item.name.split('-')[1] }}
       </router-link>
-    </div>
-    <div class="content">
+    </div> -->
+    <!-- <div class="content">
       <router-view></router-view>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       tabList: [],
-    }
+    };
   },
   created() {
     // axios.defaults.withCredentials = true
@@ -37,14 +37,14 @@ export default {
     // })
   },
   mounted() {
-    const req = require.context('./', false, /\.vue$/)
-    const requireAll = (v) => v.keys().map(v)
-    this.tabList = requireAll(req)
-      .map((item) => item.default)
-      .filter((v) => v.name !== 'home')
+    // const req = require.context('./', false, /\.vue$/);
+    // const requireAll = (v) => v.keys().map(v);
+    // this.tabList = requireAll(req)
+    //   .map((item) => item.default)
+    //   .filter((v) => v.name !== 'home');
   },
   methods: {},
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
