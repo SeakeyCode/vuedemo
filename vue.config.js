@@ -1,15 +1,12 @@
-
 module.exports = {
-  publicPath:'./'
-  // devServer: {
-  //   https: true,
-  //   proxy: {
-  //       '/api': {
-  //           target: 'http://localhost:3000',
-  //           changOrigin: true,
-  //           pathRewrite: {'^/api' : ''}
-  //         }
-
-  //   }
-  // },
-}
+  publicPath: './',
+  devServer: {
+    proxy: {
+      '/pdf': {
+        target: 'http://139.196.19.69:8100',
+        // changOrigin: true,
+        pathRewrite: { '^/pdf': '' },
+      },
+    },
+  },
+};
