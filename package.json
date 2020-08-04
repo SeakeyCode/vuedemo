@@ -26,6 +26,7 @@
     "lodash": "^4.17.15",
     "marked": "^1.1.0",
     "node-sass": "^4.13.0",
+    "pdfjs-dist": "2.0.943",
     "pdfobject": "^2.1.1",
     "sass-loader": "^8.0.0",
     "scss": "^0.2.4",

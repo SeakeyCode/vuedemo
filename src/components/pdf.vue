@@ -5,40 +5,77 @@
       <button @click="test(1)">缩小</button>
     </div>
     <div class="pdfBox">
-      <pdf :src="src" class="myPdf"></pdf>
-      <!-- <pdf
-        v-for="i in numPages"
-        :key="i"
-        :src="src"
-        :page="i"
-        class="myPdf"
-      ></pdf> -->
+      <div class="center">
+        <div class="contor">
+          <button icon="el-icon-plus" @click="addscale">放大</button>
+          <button icon="el-icon-minus" @click="minus">缩小</button>
+        </div>
+        <canvas
+          v-for="page in page_count"
+          :id="'the-canvas' + page"
+          :key="page"
+        ></canvas>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import pdf from 'vue-pdf';
-var loadingTask = pdf.createLoadingTask(
-  'http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf'
-);
+let PDFJS = require('pdfjs-dist');
+PDFJS.workerSrc = require('pdfjs-dist/build/pdf.worker.min');
 export default {
-  components: {
-    pdf,
-  },
+  components: {},
   data() {
     return {
-      src: loadingTask,
-      numPages: undefined,
-      scale: 1,
+      pdfUrl:
+        'http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf', // 这里是pdf文件地址，后台给的流文件请求地址也是可以的
+      pdfDoc: null, // pdfjs 生成的对象
+      pageNum: 1, //
+      pageRendering: false,
+      pageNumPending: null,
+      scale: 1.2, // 放大倍数
+      page_num: 0, // 当前页数
+      page_count: 0, // 总页数
     };
   },
   mounted() {
-    this.src.promise.then((pdf) => {
-      this.numPages = pdf.numPages;
-      console.dir(document.querySelector('.pdfBox'));
-    });
+    this.init();
   },
   methods: {
+    init() {
+      PDFJS.getDocument(this.pdfUrl).then((res) => {
+        this.pdfDoc = res;
+        this.page_count = this.pdfDoc.numPages;
+        for (let i = 0; i < this.page_count; i++) {
+          this.renderPage(i + 1);
+        }
+      });
+    },
+    renderPage(num) {
+      this.pdfDoc.getPage(num).then((page) => {
+        let canvas = document.getElementById('the-canvas' + num);
+        var viewport = page.getViewport(this.scale);
+        canvas.height = viewport.height;
+        this.pdfWidth = canvas.width = viewport.width;
+        const canvasContext = canvas.getContext('2d');
+        var renderContext = {
+          canvasContext,
+          viewport: viewport,
+        };
+        page.render(renderContext);
+      });
+    },
+    addscale() {
+      if (this.scale <= 2) {
+        this.scale += 0.1;
+        this.renderPage(this.pageNum);
+      }
+    },
+    minus() {
+      if (this.scale >= 0.8) {
+        this.scale -= 0.1;
+        this.renderPage(this.pageNum);
+      }
+    },
     test(num) {
       const ele = document.querySelector('.pdfBox');
       const box = ele.getBoundingClientRect();
