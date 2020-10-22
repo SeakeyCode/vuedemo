@@ -8,6 +8,7 @@ import editing from '@/components/editing';
 import minder from '@/components/minder';
 import pdf from '@/components/pdf';
 import Images from '@/components/images';
+import editor from '@/components/editor';
 
 Vue.use(Router);
 
@@ -15,7 +16,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Images,
+      component: editor,
     },
     { path: '/about', component: About },
     { path: '/domDiff', component: domDiff },
