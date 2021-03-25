@@ -5830,10 +5830,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-marked@^1.2.8:
-  version "1.2.8"
-  resolved "https://registry.npm.taobao.org/marked/download/marked-1.2.8.tgz?cache=0&sync_timestamp=1611671059221&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmarked%2Fdownload%2Fmarked-1.2.8.tgz#5008ece15cfa43e653e85845f3525af4beb6bdd4"
-  integrity sha1-UAjs4Vz6Q+ZT6FhF81Ja9L62vdQ=
+marked@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/marked/download/marked-2.0.0.tgz?cache=0&sync_timestamp=1614584391219&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmarked%2Fdownload%2Fmarked-2.0.0.tgz#9662bbcb77ebbded0662a7be66ff929a8611cee5"
+  integrity sha1-lmK7y3frve0GYqe+Zv+SmoYRzuU=
 
 md5.js@^1.3.4:
   version "1.3.5"
